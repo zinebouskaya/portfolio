@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Zine's Portfolio</title>
+    <title>Zine's Blog</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -33,53 +33,38 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
-
   </head>
   <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">Zine Bouskaya</a>
-            <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
-              <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link " href="{% static 'resume.pdf' %}">My Resume </a>
-                <a class="nav-item nav-link"  href="https://www.linkedin.com/in/zine-bouskaya-256606141/">LinkedIn</a>
-                <a class="nav-item nav-link"  href="https://www.facebook.com/zine.e.bouskaya">Facebook</a>
-                <a class="nav-item nav-link " href="{% url 'allblogs' %}">Blog</a>
-              </div>
+          <a class="navbar-brand " href="{% url 'home' %}">Back to Home</a>
+          <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+              <a class="nav-item nav-link " href="{% static 'resume.pdf' %}">My Resume </a>
+              <a class="nav-item nav-link"  href="https://www.linkedin.com/in/zine-bouskaya-256606141/">LinkedIn</a>
+              <a class="nav-item nav-link"  href="https://www.facebook.com/zine.e.bouskaya">Facebook</a>
+              <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </div>
+          </div>
           </nav>
      </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Zine.</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <p>
-        <a href="mailto:zine.bouskaya@gmail.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-      <img src="{% static 'zine.jpg' %}" height=100 width=100 />
+<div class="container">
+<h1 class="text-center pt-5">Welcome to My Blog!</h1>
+<br/>
+<br/>
+<br/>
+<h2>Latest Posts</h2>
+<hr/>
+{% for blogs in blog.all%}
+<a href="{% url 'detail'blog.id %}"><h3>{{ blogs.title }}</h3></a>
+{{ blogs.pub_date }}
+<img class="img-fluid" src="{{ blogs.image.url }}" height=200 width=200/>
+<p>{{ blog.summary }}</p>
+<br/> 
+{% endfor %}
     </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-       {% for experiencess in experiences.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ experiences.image }}" />
-            <div class="card-body">
-              <p class="card-text">{ {experiences.summary} }</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-              </div>
-            </div>
-          </div>
 </main>
 
 <footer class="text-muted">
@@ -87,7 +72,7 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p> &copy; Zine 2019</p>
+    <p class="text-center"> &copy; Zine 2019</p>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
