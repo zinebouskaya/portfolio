@@ -24,6 +24,8 @@
         -ms-user-select: none;
         user-select: none;
       }
+     
+      
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -38,7 +40,7 @@
   <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">Zine Bouskaya</a>
+            <a class="navbar-brand" href="{% url 'home' %}">ZINE BOUSKAYA Portfolio</a>
             <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link " href="{% static 'resume.pdf' %}">My Resume </a>
@@ -52,27 +54,37 @@
 
 <main role="main">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Zine.</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <img class="img-fluid" src="{% static 'zine.jpg' %}" height=250 width=250/>
+  <section  class="jumbotron  text-center">
+    <div   class="container">
+      <h2 class="jumbotron-heading">Hello, I'm Zine.</h2>
+      <p id="txt" class="lead text-muted">I'm from Algeria, I have a master's degree in industrial engineering, i am certfied in Automation & DevOps. <br/> I have a diverse set of skills, ranging from full stack web developement, to cloud, scada system, control engineering, data analysis, networking and linux server administrator <br/>I am looking for an opportunity in order to build a career within successful company that
+        will offer me the opportunity to learn new skills
+        and provide me with stable long term of
+        employment </p>
+      <img class="img-fluid" id="me"  src="{% static 'zine.jpg' %}" height=250 width=250/>    
+
       <p>
-        <a href="mailto:zine.bouskaya@gmail.com" class="btn btn-primary my-2">Email me</a>
-      </p>
-    </div>
+      <a href="mailto:zine.bouskaya@gmail.com" id="em" class="btn btn-primary my-2">Email me</a>
+      </p>   
+       </div>
+    
+       
+      
+    
   </section>
+ 
 
   <div class="album py-5 bg-light">
     <div class="container">
-
+<h2>Training Courses, Certifications and Experiences:</h2>
+<br/>
       <div class="row">
        {% for job in experience.all %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
+            <img class="card-img-top" src="{{ job.image.url }}" height=200 width=200 />
             <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
+            <p class="card-text">{{ job.summary }}</p>
             </div>
           </div>
         </div>
@@ -87,7 +99,7 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p> &copy; Zine 2019</p>
+    <p class="text-center"> &copy; Zine 2019</p>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
